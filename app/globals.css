@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg-start: #0b0f14;
+  --bg-mid: #0b1118;
+  --bg-end: #020305;
+  --glow: rgba(56, 189, 248, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 20% -10%, var(--glow), transparent 60%),
+    linear-gradient(180deg, var(--bg-start) 0%, var(--bg-mid) 40%, var(--bg-end) 100%);
+  color: #e2e8f0;
+  font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.25);
+}
