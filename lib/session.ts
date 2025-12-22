@@ -1,10 +1,15 @@
 import { cookies } from "next/headers";
-import { getIronSession, type SessionOptions } from "iron-session";
+import { getIronSession, type IronSession, type SessionOptions } from "iron-session";
 
 const sessionSecret = process.env.SESSION_SECRET;
 if (!sessionSecret || sessionSecret.length < 32) {
   throw new Error("SESSION_SECRET must be set to at least 32 characters.");
 }
+
+export type SessionData = {
+  user?: string;
+  createdAt?: number;
+};
 
 export const sessionOptions: SessionOptions = {
   // Using iron-session for straightforward, signed cookie sessions with App Router + middleware support.
@@ -19,12 +24,12 @@ export const sessionOptions: SessionOptions = {
   }
 };
 
-export function getSession() {
-  return getIronSession(cookies(), sessionOptions);
+export function getSession(): Promise<IronSession<SessionData>> {
+  return getIronSession<SessionData>(cookies(), sessionOptions);
 }
 
-export function getSessionWithRemember(remember: boolean) {
-  return getIronSession(cookies(), {
+export function getSessionWithRemember(remember: boolean): Promise<IronSession<SessionData>> {
+  return getIronSession<SessionData>(cookies(), {
     ...sessionOptions,
     cookieOptions: {
       ...sessionOptions.cookieOptions,
