@@ -16,20 +16,20 @@ export default function HomePage() {
           />
         </div>
         <h1 className="mt-10 text-4xl font-semibold tracking-tight text-slate-100 sm:text-5xl">
-          Private deck access
+          Private Access
         </h1>
         <p className="mt-4 text-lg text-slate-300">
-          Secure, invite-only view for the Profitria pitch deck.
+          Secure, invite-only view for the Profitia project.
         </p>
         <div className="mt-8 flex items-center justify-center gap-4">
           <Link
             href="/login"
             className="rounded-full bg-sky-400 px-6 py-3 text-base font-semibold text-slate-950 shadow-lg shadow-sky-400/30 transition hover:bg-sky-300"
           >
-            Sign in to view deck
+            Sign in to view
           </Link>
         </div>
-        <footer className="mt-16 text-sm text-slate-500">Private deck - do not share</footer>
+        <footer className="mt-16 text-sm text-slate-500">Private access - do not share</footer>
       </div>
     </main>
   );
