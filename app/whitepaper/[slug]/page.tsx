@@ -12,6 +12,15 @@ type WhitepaperDocPageProps = {
   };
 };
 
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return WHITEPAPER_DOCS.filter((doc) => doc.slug !== "whitepaper").map((doc) => ({
+    slug: doc.slug
+  }));
+}
+
 export default async function WhitepaperDocPage({ params }: WhitepaperDocPageProps) {
   const doc = WHITEPAPER_DOCS.find((item) => item.slug === params.slug);
 
