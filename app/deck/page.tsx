@@ -31,6 +31,12 @@ export default async function DeckPage({ searchParams }: DeckPageProps) {
               >
                 Whitepaper
               </Link>
+              <Link
+                href="/founder"
+                className="rounded-full border border-white/15 px-3 py-1.5 text-slate-200 transition hover:border-white/40"
+              >
+                Founder Presentation
+              </Link>
             </nav>
           </div>
           <div className="flex flex-wrap items-center gap-3">

@@ -1,14 +1,8 @@
 import Link from "next/link";
 import { getSession } from "@/lib/session";
 import { logoutAction } from "@/app/deck/actions";
-import { WHITEPAPER_DOCS } from "./docs";
 
-type WhitepaperShellProps = {
-  activeSlug: string;
-  children: React.ReactNode;
-};
-
-export default async function WhitepaperShell({ activeSlug, children }: WhitepaperShellProps) {
+export default async function FounderPresentationPage() {
   const session = await getSession();
 
   return (
@@ -26,15 +20,15 @@ export default async function WhitepaperShell({ activeSlug, children }: Whitepap
             >
               Deck
             </Link>
-            <span className="rounded-full bg-sky-400/15 px-3 py-1.5 text-sky-200">
-              Whitepaper
-            </span>
             <Link
-              href="/founder"
+              href="/whitepaper"
               className="rounded-full border border-white/15 px-3 py-1.5 text-slate-200 transition hover:border-white/40"
             >
-              Founder Presentation
+              Whitepaper
             </Link>
+            <span className="rounded-full bg-sky-400/15 px-3 py-1.5 text-sky-200">
+              Founder Presentation
+            </span>
           </nav>
         </div>
         <div className="flex flex-wrap items-center gap-3">
@@ -50,29 +44,15 @@ export default async function WhitepaperShell({ activeSlug, children }: Whitepap
       </header>
 
       <section className="px-6 py-10">
-        <div className="mx-auto w-full max-w-5xl">
-          <div className="mb-6 flex flex-wrap items-center gap-2 text-sm">
-            {WHITEPAPER_DOCS.map((doc) => {
-              const href = doc.slug === "whitepaper" ? "/whitepaper" : `/whitepaper/${doc.slug}`;
-              const isActive = doc.slug === activeSlug;
-              return (
-                <Link
-                  key={doc.slug}
-                  href={href}
-                  className={
-                    isActive
-                      ? "rounded-full bg-sky-400/20 px-3 py-1.5 text-sky-100"
-                      : "rounded-full border border-white/15 px-3 py-1.5 text-slate-200 transition hover:border-white/40"
-                  }
-                >
-                  {doc.title}
-                </Link>
-              );
-            })}
-          </div>
-
-          <div className="rounded-3xl border border-white/10 bg-black/30 p-8 shadow-[0_0_80px_-30px_rgba(56,189,248,0.35)] sm:p-10">
-            {children}
+        <div className="mx-auto w-full max-w-5xl rounded-3xl border border-white/10 bg-black/30 p-6 shadow-[0_0_80px_-30px_rgba(56,189,248,0.35)] sm:p-8">
+          <div className="aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
+            <iframe
+              className="h-full w-full"
+              src="https://www.youtube.com/embed/wfA0RP6SC6Y?si=N9d_TQ4XJU1OWvQ3"
+              title="Founder Presentation"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>
