@@ -26,7 +26,6 @@ export default function LoginForm() {
     <main className="flex min-h-screen items-center justify-center px-6 py-12">
       <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_0_60px_-30px_rgba(56,189,248,0.4)]">
         <h1 className="text-3xl font-semibold text-slate-100">Sign in</h1>
-        <p className="mt-2 text-sm text-slate-400">Access the private deck viewer.</p>
 
         <form action={formAction} className="mt-8 space-y-5">
           <div className="space-y-2">
