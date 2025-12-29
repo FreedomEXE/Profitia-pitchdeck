@@ -88,6 +88,7 @@ export default function FounderVideo() {
       isMounted = false;
       playerRef.current?.destroy();
       playerRef.current = null;
+      window.dispatchEvent(new Event("bg-audio-resume"));
     };
   }, []);
 
