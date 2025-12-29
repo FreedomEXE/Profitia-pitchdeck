@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { getSession } from "@/lib/session";
 import { logoutAction } from "@/app/deck/actions";
+import BackgroundAudio from "@/app/components/BackgroundAudio";
+import FounderVideo from "./FounderVideo";
 
 export default async function FounderPresentationPage() {
   const session = await getSession();
 
   return (
     <main className="min-h-screen">
+      <BackgroundAudio src="/audio/background-track.mp3" />
       <header className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 bg-black/30 px-6 py-4">
         <div className="flex flex-col gap-3">
           <div>
@@ -45,15 +48,7 @@ export default async function FounderPresentationPage() {
 
       <section className="px-6 py-10">
         <div className="mx-auto w-full max-w-5xl rounded-3xl border border-white/10 bg-black/30 p-6 shadow-[0_0_80px_-30px_rgba(56,189,248,0.35)] sm:p-8">
-          <div className="aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
-            <iframe
-              className="h-full w-full"
-              src="https://www.youtube.com/embed/wfA0RP6SC6Y?si=N9d_TQ4XJU1OWvQ3"
-              title="Founder Presentation"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          </div>
+          <FounderVideo />
         </div>
       </section>
     </main>

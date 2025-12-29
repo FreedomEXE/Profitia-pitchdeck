@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getSession } from "@/lib/session";
 import { logoutAction } from "./actions";
+import BackgroundAudio from "@/app/components/BackgroundAudio";
 
 type DeckPageProps = {
   searchParams?: {
@@ -14,6 +15,7 @@ export default async function DeckPage({ searchParams }: DeckPageProps) {
 
   return (
     <main className={`flex min-h-screen flex-col ${isPresenting ? "bg-black" : ""}`}>
+      <BackgroundAudio src="/audio/background-track.mp3" />
       {!isPresenting ? (
         <header className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 bg-black/30 px-6 py-4">
           <div className="flex flex-col gap-3">
