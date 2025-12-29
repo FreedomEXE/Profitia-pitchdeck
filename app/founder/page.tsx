@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { getSession } from "@/lib/session";
 import { logoutAction } from "@/app/deck/actions";
-import BackgroundAudio from "@/app/components/BackgroundAudio";
 import FounderVideo from "./FounderVideo";
 
 export default async function FounderPresentationPage() {
@@ -9,7 +8,6 @@ export default async function FounderPresentationPage() {
 
   return (
     <main className="min-h-screen">
-      <BackgroundAudio src="/audio/background-track.mp3" />
       <header className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 bg-black/30 px-6 py-4">
         <div className="flex flex-col gap-3">
           <div>

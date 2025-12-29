@@ -39,5 +39,5 @@ export async function loginAction(_: LoginState, formData: FormData): Promise<Lo
   session.createdAt = Date.now();
   await session.save();
 
-  redirect("/deck");
+  redirect("/portal");
 }

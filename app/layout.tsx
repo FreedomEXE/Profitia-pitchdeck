@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Source_Sans_3 } from "next/font/google";
+import BackgroundAudioShell from "@/app/components/BackgroundAudioShell";
 import "./globals.css";
 
 const heading = Space_Grotesk({
@@ -30,7 +31,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${heading.variable} ${body.variable} min-h-screen bg-ink`}>{children}</body>
+      <body className={`${heading.variable} ${body.variable} min-h-screen bg-ink`}>
+        <BackgroundAudioShell />
+        {children}
+      </body>
     </html>
   );
 }
